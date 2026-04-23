@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The CA101 Training Program</title>
+    <meta name="description" content="A complete training system for young actors pursuing television and film professionally. Develop execution, identity, and technique.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-neutral: #141416;
+            --bg-light: #1c1c1f;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a5;
+            --accent-teal: #1abc9c;
+            --accent-coral: #e67e22;
+            --accent-purple: #9b59b6;
+            --accent-gold: #f1c40f;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p, ul, li {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-text {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .btn-primary:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .btn-teal { background-color: var(--accent-teal); color: #000; }
+        .btn-teal:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+        .btn-coral { background-color: var(--accent-coral); color: #fff; }
+        .btn-coral:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+        .btn-purple { background-color: var(--accent-purple); color: #fff; }
+        .btn-purple:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.4), rgba(10, 10, 12, 1)), url('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            text-align: center;
+            padding-top: 8rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero .subhead {
+            font-size: 1.5rem;
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .hero .core-skills {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .hero .prestige-line {
+            margin-top: 3rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        /* The Big Shift */
+        .big-shift {
+            background-color: var(--bg-neutral);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .flow-arrows {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .flow-arrows span {
+            color: var(--accent-gold);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background-color: var(--bg-dark);
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .rule-card {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .rule-card h3 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .eligibility-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border: 1px solid var(--accent-gold);
+            border-radius: 10px;
+            background: rgba(241, 196, 15, 0.05);
+        }
+
+        .eligibility-box strong {
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+        }
+
+        /* Pillars Section */
+        .pillars {
+            background-color: var(--bg-neutral);
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar-card {
+            background: var(--bg-dark);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .pillar-card.audition::before { background-color: var(--accent-teal); }
+        .pillar-card.character::before { background-color: var(--accent-coral); }
+        .pillar-card.master::before { background-color: var(--accent-purple); }
+
+        .pillar-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .audition .pillar-label { color: var(--accent-teal); }
+        .character .pillar-label { color: var(--accent-coral); }
+        .master .pillar-label { color: var(--accent-purple); }
+
+        .pillar-card h3 {
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-subtitle {
+            font-style: italic;
+            font-family: var(--font-heading);
+            color: #fff;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .pillar-card ul {
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .outcome-box {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .outcome-box span {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .outcome-box p {
+            color: #fff;
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .qualify-note {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+        }
+
+        .master-eligibility {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            background: rgba(241, 196, 15, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(241, 196, 15, 0.3);
+        }
+
+        /* Program Flow */
+        .program-flow {
+            background: var(--bg-dark);
+            text-align: center;
+        }
+
+        .pathway {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .path-step {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem 3rem;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .path-step::after {
+            content: '↓';
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .path-step:last-child::after {
+            display: none;
+        }
+
+        .path-step h4 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .path-step .phase {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .graduate-box {
+            margin-top: 5rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.1), rgba(241, 196, 15, 0.02));
+            border: 1px solid rgba(241, 196, 15, 0.3);
+            border-radius: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .graduate-box h3 {
+            color: var(--accent-gold);
+            font-size: 2rem;
+        }
+
+        /* Industry Section */
+        .industry {
+            background: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            position: relative;
+        }
+
+        .industry::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 10, 12, 0.85);
+        }
+
+        .industry .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .industry blockquote {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: #fff;
+            line-height: 1.4;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            font-style: italic;
+        }
+
+        /* Coaching Section */
+        .coaching {
+            background-color: var(--bg-neutral);
+        }
+
+        .coaching-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .coaching-content h2 {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .coaching-distinction {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-left: 4px solid var(--accent-teal);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .coaching-distinction p {
+            margin-bottom: 0.5rem;
+        }
+        .coaching-distinction p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background-color: var(--bg-dark);
+            text-align: center;
+            padding: 8rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero .subhead { font-size: 1.2rem; }
+            .rules-grid, .coaching-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .industry blockquote { font-size: 1.8rem; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn-group .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>This is where actors become interesting.</h1>
+            <p class="subhead">The CA101 Training Program — a complete training system for young actors pursuing television and film professionally.</p>
+            <p style="color:#fff; font-weight:600; margin-top:1rem;">
+                If your child is working—but not breaking through—this is usually the gap.
+            </p>
+            
+            <p style="max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.8); font-size: 1.1rem;">
+                This is not a collection of random classes. It is a structured program designed to develop the three core skills every serious young actor needs:
+            </p>
+
+            <div class="core-skills">
+                <span>Strong Audition Execution</span>
+                <span style="color: rgba(255,255,255,0.3)">|</span>
+                <span>Distinct On-Camera Identity</span>
+                <span style="color: rgba(255,255,255,0.3)">|</span>
+                <span>Real Acting Technique</span>
+            </div>
+
+            <p class="highlight-text" style="font-size: 1.2rem; margin-bottom: 3rem;">Every serious actor is encouraged to complete all three.</p>
+
+            <div class="btn-group">
+                <a href="#pillars" class="btn btn-primary">Explore the Program</a>
+                <a href="https://coaching.childactor101.com" class="btn btn-outline">Private Coaching Options</a>
+            </div>
+
+            <p style="margin-top:1.5rem; font-weight:600; color:#ccc;">
+                Most actors complete all three. They just don’t always start in the same place.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Big Shift -->
+    <section class="big-shift text-center">
+        <div class="container">
+            <h2 style="color: #fff; font-size: 2.2rem; margin-bottom: 1rem;">Child Actor 101 Training Program</h2>
+            <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">
+                A structured, year-round training system designed to develop actors into confident, castable performers.
+            </p>
+            <p style="font-size: 1.25rem; color: #fff; margin-top: 2rem; font-weight: 500;">
+                No more random classes. No more guessing.
+            </p>
+            <div class="flow-arrows">
+                Just: <span>&rarr; Assessment</span> <span>&rarr; Identity</span> <span>&rarr; Technique</span> <span>&rarr; Application</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- How the Program Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How the Program Works</h2>
+                <p>This is not beginner / intermediate / advanced labeling. It is a complete actor-development system. Each offering trains a different essential skill, and serious actors are encouraged to complete all three.</p>
+            </div>
+
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h3>Where to Start</h3>
+                    <p>Actors may begin their training in either of the foundational pillars based on their immediate needs.</p>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; color: #fff; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-teal);">◆</span> <strong>Audition Mastery</strong>
+                        </li>
+                        <li style="color: #fff; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-coral);">◆</span> <strong>Character Lab</strong>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="rule-card" style="border-color: rgba(241, 196, 15, 0.3);">
+                    <h3>The Eligibility Rule</h3>
+                    <p>Master Methods is our most selective and advanced offering, requiring foundational skills.</p>
+                    <div class="eligibility-box">
+                        <strong>Required for Master Methods:</strong>
+                        To enroll in Master Methods, actors must first complete either <em>Audition Mastery</em> or <em>Character Lab</em>.
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align:center; margin-top:2rem; font-weight:600; color:#fff;">
+                Serious actors don’t stop at one. They complete the system.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Three Program Pillars -->
+    <section id="pillars" class="pillars">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Three Core Pillars</h2>
+                <p>Every offering serves a distinct, vital purpose in an actor's journey from learning to booking.</p>
+            </div>
+
+            <div class="pillar-grid">
+                <!-- Card 1 -->
+                <div class="pillar-card audition">
+                    <div class="pillar-label">Execution</div>
+                    <h3>Audition Mastery</h3>
+                    <div class="pillar-subtitle">"Where are we right now?"</div>
+                    <p style="color:#fff; font-weight:600;">You leave knowing exactly what your child needs to fix—and what to do next.</p>
+                    <p>The Assessment Engine for actors who are auditioning now.</p>
+                    <ul>
+                        <li>Helps actors perform better under pressure</li>
+                        <li>Improves self-tapes, callbacks, choices, and strategy</li>
+                        <li>Includes evaluation through homework self-tapes and a mock series regular callback final</li>
+                        <li>Includes a private 1-on-1 parent career strategy meeting / report card at the end</li>
+                    </ul>
+                    <div class="outcome-box">
+                        <span>Outcome</span>
+                        <p>Clarity, stronger auditions, and strategic direction</p>
+                    </div>
+                    <div class="qualify-note">
+                        ✓ This class qualifies actors for Master Methods.
+                    </div>
+                    <a href="https://auditionmastery.childactor101.com" class="btn btn-teal" style="width: 100%;">View Audition Mastery</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="pillar-card character">
+                    <div class="pillar-label">Identity</div>
+                    <h3>Character Lab</h3>
+                    <div class="pillar-subtitle">"Why would casting choose you?"</div>
+                    <p style="color:#fff; font-weight:600;">If your child is “good”… but nothing is happening after auditions—this is usually the missing piece.</p>
+                    <p>The Identity Engine that helps actors stop blending in.</p>
+                    <ul>
+                        <li>Focuses on type, specificity, bold choices, and on-camera presence</li>
+                        <li>Helps actors discover what makes them uniquely castable</li>
+                        <li>Includes 4 custom mini demo reel clips based on the actor’s strengths/type discovered during the course</li>
+                        <li>Emphasizes the creation of tangible, usable casting assets</li>
+                    </ul>
+                    <div class="outcome-box">
+                        <span>Outcome</span>
+                        <p>Differentiation, type clarity, and usable casting assets</p>
+                    </div>
+                    <div class="qualify-note">
+                        ✓ This class qualifies actors for Master Methods.
+                    </div>
+                    <a href="https://characterlab.childactor101.com" class="btn btn-coral" style="width: 100%;">View Character Lab</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="pillar-card master">
+                    <div class="pillar-label">Technique</div>
+                    <h3>Master Methods</h3>
+                    <div style="margin: 1.5rem 0;">
+                        <img src="mastermethods-logo.png" 
+                             alt="Master Methods Poster"
+                             style="width:100%; border-radius:8px; box-shadow:0 20px 40px rgba(0,0,0,0.6);">
+                    </div>
+                    <div class="pillar-subtitle">"How do great actors actually work?"</div>
+                    <p>The Craft Engine designed for actors 12+ ready to deepen process.</p>
+                    <ul>
+                        <li>Teaches foundational acting approaches in an age-appropriate, practical way</li>
+                        <li>Touches techniques inspired by Stanislavski, Meisner, Adler, Strasberg, Chekhov, Mamet / Practical Aesthetics</li>
+                        <li>Includes 2 contrasting custom polished self-tape demo reel scenes (one dramatic prestige, one comedic multi-cam)</li>
+                    </ul>
+                    
+                    <p style="color:#fff; font-weight:600; margin-bottom:1.5rem;">Actors leave with two custom scenes designed to actually be used—on their reel, profiles, and submissions.</p>
+                    <p style="color:#fff; font-weight:600;">This is not a beginner class. It’s for actors ready to train seriously.</p>
+                    <div class="master-eligibility">
+                        <span>🔒</span> 
+                        <span><strong>Eligibility required:</strong> actors must complete Audition Mastery or Character Lab before enrolling.</span>
+                    </div>
+
+                    <div class="outcome-box">
+                        <span>Outcome</span>
+                        <p>Technique, process, and polished performance assets</p>
+                    </div>
+                    
+                    <a href="#" class="btn btn-purple" style="width: 100%;">View Master Methods <span class="coming-soon">Coming Soon</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry / Rep-Facing Section -->
+    <section class="industry">
+        <div class="container">
+            <blockquote>
+                Actors don’t struggle because they lack talent.<br>
+                They struggle because they lack clarity, specificity, and process.<br><br>
+                This system fixes that.
+            </blockquote>
+            <div class="section-header" style="margin-bottom: 0;">
+                <h2 style="font-size: 2rem;">Built for the Demands of the Real Industry</h2>
+                <p style="color: #fff; max-width: 700px; margin: 0 auto;">
+                    No more random reframed gimmicky classes. No more overwhelming 6-month “The Craft” models. This is a cleaner yearly training structure where each offering is distinct and purposeful. Graduates of this program come in prepared, specific, and ready to work.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Flow / Completion -->
+    <section class="program-flow">
+        <div class="container">
+            <div class="section-header">
+                <h2>The CA101 Pathway</h2>
+                <p>An actor who doesn’t just “take classes”… but understands how to work, how to stand out, and how to compete.</p>
+            </div>
+
+            <div class="pathway">
+                <div class="path-step">
+                    <span class="phase">Start</span>
+                    <h4>Start Here</h4>
+                    <p>Begin with <strong>Audition Mastery</strong> or <strong>Character Lab</strong> to identify strengths, gaps, strategy, and build a unique, memorable identity.</p>
+                </div>
+                <div class="path-step">
+                    <span class="phase">Build</span>
+                    <h4>The Core Foundation</h4>
+                    <p>Complete the other core offering to ensure both execution and identity are solidified.</p>
+                </div>
+                <div class="path-step">
+                    <span class="phase">Advance</span>
+                    <h4>Unlock Master Methods</h4>
+                    <p>Train deeper, build real technique, and complete the system.</p>
+                </div>
+            </div>
+
+            <div class="graduate-box">
+                <h3>CA101 Certified Graduate</h3>
+                <p style="color: #fff; font-size: 1.1rem; margin-top: 1rem;">
+                    Actors who complete all three pillars—Audition Mastery, Character Lab, and Master Methods—receive formal designation. They have proven they possess the execution, identity, and technique required to compete professionally.
+                </p>
+                <p style="color:#fff; font-weight:600; margin-top:1rem;">
+                    This is the standard we want agents and managers to recognize.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaching Section -->
+    <section class="coaching">
+        <div class="container coaching-grid">
+            <div class="coaching-content">
+                <h2>Ongoing Coaching & Audition Support</h2>
+                <p>Once actors complete the program, they move into ongoing coaching based on their goals and audition activity. We provide private support for audition prep, callback coaching, accelerated private sessions, strategic self-tape guidance, and targeted ongoing development.</p>
+                
+                <div class="coaching-distinction">
+                    <p><strong style="color: #fff;">The training program builds the actor.</strong></p>
+                    <p>Coaching supports the actor in real time.</p>
+                </div>
+
+                <ul style="list-style-type: none; padding: 0; color: #fff;">
+                    <li style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: var(--accent-teal);">✓</span> <strong>Strategic Audition Coaching:</strong> Scene breakdown, live coaching, and tape review.
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: var(--accent-teal);">✓</span> <strong>Accelerator Sessions:</strong> Short-term focused bursts and callback prep.
+                    </li>
+                </ul>
+
+                <a href="https://coaching.childactor101.com" class="btn btn-outline" style="margin-top: 1.5rem;">Explore Coaching Options</a>
+            </div>
+            <div class="coaching-image" style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                <img src="https://images.unsplash.com/photo-1516355607565-d4190b296b12?auto=format&fit=crop&q=80&w=800" alt="Ongoing Coaching" style="width: 100%; height: auto; display: block; filter: grayscale(20%) contrast(1.1);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>A serious system for serious young actors.</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 3rem; color: #fff;">
+                Every actor needs execution, identity, and technique. <br>This program develops all three.
+            </p>
+            <div class="btn-group">
+                <a href="https://auditionmastery.childactor101.com" class="btn btn-teal">Start with Audition Mastery</a>
+                <a href="https://characterlab.childactor101.com" class="btn btn-coral">Start with Character Lab</a>
+                <a href="https://coaching.childactor101.com" class="btn btn-outline">Explore Coaching</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
