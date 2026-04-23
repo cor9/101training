@@ -337,6 +337,11 @@
             flex-grow: 1;
         }
 
+        .pillar-card img {
+            max-height: 260px;
+            object-fit: contain;
+        }
+
         .outcome-box {
             padding: 1.5rem;
             background: var(--bg-light);
@@ -681,11 +686,14 @@
                 <div class="pillar-card character">
                     <div class="pillar-label">Identity</div>
                     <h3>Character Lab</h3>
-                    <div style="margin: 1.5rem 0;">
+                    <div style="margin: 1.5rem 0; background: #0f0f12; padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
                         <img src="clab.png" 
                              alt="Character Lab Logo"
-                             style="width:100%; border-radius:8px; box-shadow:0 20px 40px rgba(0,0,0,0.6);">
+                             style="width:100%; border-radius:10px; filter: saturate(0.85) contrast(1.05);">
                     </div>
+                    <p style="color:#fff; font-weight:500; margin-bottom:1rem;">
+                        This is where actors stop blending in and start being cast.
+                    </p>
                     <div class="pillar-subtitle">"Why would casting choose you?"</div>
                     <p style="color:#fff; font-weight:600;">If your child is “good”… but nothing is happening after auditions—this is usually the missing piece.</p>
                     <p>The Identity Engine that helps actors stop blending in.</p>
