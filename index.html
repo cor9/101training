@@ -158,7 +158,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.4), rgba(10, 10, 12, 1)), url('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.6), rgba(10, 10, 12, 1)), url('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            filter: saturate(0.8) brightness(0.85);
             text-align: center;
             padding-top: 8rem;
         }
@@ -203,8 +204,9 @@
         /* The Big Shift */
         .big-shift {
             background-color: var(--bg-neutral);
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255,255,255,0.1);
             border-bottom: 1px solid var(--border-color);
+            margin-top: 3rem;
         }
 
         .flow-arrows {
@@ -566,8 +568,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>This is where actors become interesting.</h1>
-            <p class="subhead">The CA101 Training Program — a complete training system for young actors pursuing television and film professionally.</p>
+            <h1>The CA101 Training System</h1>
+            <p class="subhead">This is where actors become interesting.</p>
+            <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem auto;">The CA101 Training Program — a complete training system for young actors pursuing television and film professionally.</p>
             <p style="color:#fff; font-weight:600; margin-top:1rem;">
                 If your child is working—but not breaking through—this is usually the gap.
             </p>
